@@ -5,682 +5,160 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#101010">
-<title>Querida Pastito ♡</title>
-
+<title>Querida Pastito</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #101010;
-  --bg-soft: #171717;
-  --bg-card: #1d1d1d;
-  --bg-light: #242424;
-  --text: #f1eee9;
-  --muted: #aaa49c;
-  --accent: #c9bba6;
-  --line: rgba(255,255,255,.10);
-  --serif: 'Playfair Display', Georgia, serif;
-  --sans: 'DM Sans', sans-serif;
+  --bg:#101010;
+  --text:#f1eee9;
+  --muted:#aaa49c;
+  --accent:#c9bba6;
+  --line:rgba(255,255,255,.10);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',sans-serif;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  font-weight: 300;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  opacity: .16;
-  background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px);
-  background-size: 5px 5px;
-}
-
-::selection {
-  background: var(--accent);
-  color: #111;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font-family: inherit;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.13;background-image:radial-gradient(#fff .5px,transparent .5px);background-size:5px 5px}
+::selection{background:var(--accent);color:#111}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
 
 /* PORTADA */
-
-.cover {
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 35px 24px;
-  position: relative;
-  background:
-    radial-gradient(ellipse at 50% 45%, rgba(151,130,105,.10), transparent 60%),
-    #101010;
-  transition: opacity .8s ease, transform .8s ease;
+.cover{
+  min-height:100svh;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;
+  padding:35px 24px;position:relative;
+  background:radial-gradient(ellipse at 50% 45%,rgba(151,130,105,.10),transparent 60%),#101010;
+  transition:opacity .8s ease,transform .8s ease;
 }
-
-.cover.hidden {
-  opacity: 0;
-  transform: translateY(-25px);
-  pointer-events: none;
-  position: absolute;
-  width: 100%;
-}
-
-.cover-small {
-  color: var(--accent);
-  font-size: .68rem;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-
-.cover h1 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(3rem, 10vw, 5.7rem);
-  line-height: 1.1;
-  margin-bottom: 22px;
-}
-
-.cover-subtitle {
-  color: var(--muted);
-  font-size: .95rem;
-  line-height: 1.8;
-  max-width: 340px;
-  margin-bottom: 40px;
-}
-
-.cover-note {
-  max-width: 430px;
-  color: #c9c3bb;
-  font-size: .9rem;
-  line-height: 2;
-  margin-bottom: 35px;
-}
-
-.signature {
-  color: var(--accent);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.25rem;
-  margin-top: 10px;
-}
-
-.open-button {
-  border: 1px solid rgba(201,187,166,.55);
-  background: transparent;
-  color: var(--text);
-  padding: 15px 32px;
-  border-radius: 50px;
-  font-size: .85rem;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: .35s ease;
-}
-
-.open-button:hover {
-  background: var(--accent);
-  color: #111;
-  transform: translateY(-3px);
-}
-
-.cover-bottom {
-  position: absolute;
-  bottom: 30px;
-  color: #77716a;
-  font-size: .65rem;
-  letter-spacing: 3px;
-}
+.cover.hidden{opacity:0;transform:translateY(-25px);pointer-events:none;position:absolute;width:100%}
+.cover-small{color:var(--accent);font-size:.68rem;letter-spacing:5px;text-transform:uppercase;margin-bottom:30px}
+.cover h1{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,10vw,5.7rem);line-height:1.1;margin-bottom:22px}
+.cover-subtitle{color:var(--muted);font-size:.95rem;line-height:1.8;max-width:340px;margin-bottom:40px}
+.cover-note{max-width:430px;color:#c9c3bb;font-size:.9rem;line-height:2;margin-bottom:35px}
+.signature{color:var(--accent);font-family:var(--serif);font-style:italic;font-size:1.25rem;margin-top:10px}
+.open-button{border:1px solid rgba(201,187,166,.55);background:transparent;color:var(--text);padding:15px 32px;border-radius:50px;font-size:.85rem;letter-spacing:1px;cursor:pointer;transition:.35s ease}
+.open-button:hover{background:var(--accent);color:#111;transform:translateY(-3px)}
 
 /* CONTENIDO */
-
-#main-content {
-  display: none;
-  opacity: 0;
-  animation: appear 1.2s ease forwards;
-}
-
-@keyframes appear {
-  to { opacity: 1; }
-}
-
-.section {
-  padding: 110px 24px;
-  position: relative;
-}
-
-.container {
-  max-width: 900px;
-  margin: auto;
-}
-
-.section-label {
-  color: var(--accent);
-  font-size: .68rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 23px;
-}
-
-.section-title {
-  font-family: var(--serif);
-  font-size: clamp(2.1rem, 6vw, 3.5rem);
-  font-weight: 400;
-  line-height: 1.25;
-  margin-bottom: 22px;
-}
-
-.section-description {
-  color: var(--muted);
-  font-size: .95rem;
-  line-height: 1.9;
-  max-width: 570px;
-}
-
-.center {
-  text-align: center;
-}
-
-.center .section-description {
-  margin: auto;
-}
+#main-content{display:none;opacity:0;animation:appear 1.2s ease forwards}
+@keyframes appear{to{opacity:1}}
+.section{padding:110px 24px;position:relative}
+.container{max-width:900px;margin:auto}
+.section-label{color:var(--accent);font-size:.68rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:23px}
+.section-title{font-family:var(--serif);font-size:clamp(2.1rem,6vw,3.5rem);font-weight:400;line-height:1.25;margin-bottom:22px}
+.section-description{color:var(--muted);font-size:.95rem;line-height:1.9;max-width:570px}
+.center{text-align:center}
+.center .section-description{margin:auto}
 
 /* INTRODUCCIÓN */
-
-.intro {
-  background: #171717;
-  text-align: center;
-}
-
-.intro .container {
-  max-width: 690px;
-}
-
-.intro-text {
-  font-family: var(--serif);
-  font-size: clamp(1.3rem, 4vw, 1.8rem);
-  line-height: 1.9;
-  color: #ded8d0;
-  font-weight: 400;
-}
-
-.intro-text span {
-  color: var(--accent);
-  font-style: italic;
-}
+.intro{background:#171717;text-align:center}
+.intro .container{max-width:690px}
+.intro-text{font-family:var(--serif);font-size:clamp(1.3rem,4vw,1.8rem);line-height:1.9;color:#ded8d0;font-weight:400}
+.intro-text span{color:var(--accent);font-style:italic}
 
 /* CARTA */
+.letter-section{background:#121212}
+.letter{max-width:730px;margin:45px auto 0;padding:clamp(28px,6vw,65px);background:linear-gradient(145deg,#202020,#191919);border:1px solid var(--line);border-radius:4px;box-shadow:0 25px 80px rgba(0,0,0,.22)}
+.letter h3{font-family:var(--serif);font-size:1.5rem;font-weight:400;margin-bottom:30px;color:var(--accent)}
+.letter p{color:#d0cbc4;font-size:.94rem;line-height:2.1;margin-bottom:22px}
+.letter-signature{margin-top:40px;font-family:var(--serif);font-size:1.25rem;line-height:1.8;font-style:italic;color:var(--accent)}
 
-.letter-section {
-  background: #121212;
-}
-
-.letter {
-  max-width: 730px;
-  margin: 45px auto 0;
-  padding: clamp(28px, 6vw, 65px);
-  background: linear-gradient(145deg, #202020, #191919);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  box-shadow: 0 25px 80px rgba(0,0,0,.22);
-}
-
-.letter h3 {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin-bottom: 30px;
-  color: var(--accent);
-}
-
-.letter p {
-  color: #d0cbc4;
-  font-size: .94rem;
-  line-height: 2.1;
-  margin-bottom: 22px;
-}
-
-.letter-signature {
-  margin-top: 40px;
-  font-family: var(--serif);
-  font-size: 1.25rem;
-  line-height: 1.8;
-  font-style: italic;
-  color: var(--accent);
-}
-
-/* FOTOS */
-
-.gallery-section {
-  background: #191919;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 25px;
-  margin-top: 55px;
-}
-
-.photo-card {
-  background: #222;
-  padding: 12px 12px 22px;
-  border: 1px solid rgba(255,255,255,.07);
-  transform: rotate(-1deg);
-  transition: transform .4s ease, background .4s ease;
-}
-
-.photo-card:nth-child(even) {
-  transform: rotate(1.2deg);
-}
-
-.photo-card:hover {
-  transform: rotate(0deg) translateY(-7px);
-  background: #292929;
-}
-
-.photo-placeholder {
-  min-height: 220px;
-  aspect-ratio: 4 / 5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background:
-    radial-gradient(circle at 50% 35%, rgba(201,187,166,.16), transparent 55%),
-    linear-gradient(145deg, #30302e, #191919);
-  color: #a9a096;
-  font-size: .75rem;
-  letter-spacing: 2px;
-  text-align: center;
-  padding: 15px;
-}
-
-.photo-card p {
-  font-family: var(--serif);
-  color: #e1dbd2;
-  text-align: center;
-  font-size: 1.05rem;
-  margin-top: 17px;
-}
-
-.gallery-caption {
-  text-align: center;
-  color: var(--muted);
-  margin-top: 40px;
-  font-size: .85rem;
-  letter-spacing: 1px;
-}
+/* FOTOGRAFÍAS */
+.gallery-section{background:#191919}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px;margin-top:55px}
+.photo-card{background:#222;padding:12px 12px 22px;border:1px solid rgba(255,255,255,.07);transform:rotate(-1deg);transition:transform .4s ease,background .4s ease}
+.photo-card:nth-child(even){transform:rotate(1.2deg)}
+.photo-card:hover{transform:rotate(0deg) translateY(-7px);background:#292929}
+.photo-card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#30302e}
+.photo-card p{font-family:var(--serif);color:#e1dbd2;text-align:center;font-size:1.05rem;margin-top:17px}
+.gallery-caption{text-align:center;color:var(--muted);margin-top:40px;font-size:.85rem;letter-spacing:1px}
 
 /* LÍNEA DE TIEMPO */
+.timeline-section{background:#121212}
+.timeline{max-width:650px;margin:60px auto 0;position:relative}
+.timeline::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,transparent,#8e806e,#8e806e,transparent)}
+.timeline-item{position:relative;padding-left:42px;padding-bottom:55px}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-dot{position:absolute;left:2px;top:5px;width:13px;height:13px;background:var(--accent);border-radius:50%;box-shadow:0 0 18px rgba(201,187,166,.25)}
+.timeline-date{color:var(--accent);font-size:.75rem;letter-spacing:2px;margin-bottom:13px}
+.timeline-item h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;margin-bottom:10px}
+.timeline-item p{color:var(--muted);font-size:.9rem;line-height:1.8}
 
-.timeline-section {
-  background: #121212;
-}
-
-.timeline {
-  max-width: 650px;
-  margin: 60px auto 0;
-  position: relative;
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 8px;
-  top: 8px;
-  bottom: 8px;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, #8e806e, #8e806e, transparent);
-}
-
-.timeline-item {
-  position: relative;
-  padding-left: 42px;
-  padding-bottom: 55px;
-}
-
-.timeline-item:last-child {
-  padding-bottom: 0;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: 2px;
-  top: 5px;
-  width: 13px;
-  height: 13px;
-  background: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 18px rgba(201,187,166,.25);
-}
-
-.timeline-date {
-  color: var(--accent);
-  font-size: .75rem;
-  letter-spacing: 2px;
-  margin-bottom: 13px;
-}
-
-.timeline-item h3 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.timeline-item p {
-  color: var(--muted);
-  font-size: .9rem;
-  line-height: 1.8;
-}
-
-/* PEQUEÑAS COSTUMBRES */
-
-.habits-section {
-  background: #191919;
-}
-
-.habits-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
-  margin-top: 50px;
-}
-
-.habit-card {
-  padding: 27px;
-  background: #222;
-  border: 1px solid var(--line);
-  min-height: 175px;
-  transition: .35s ease;
-}
-
-.habit-card:hover {
-  background: #292929;
-  transform: translateY(-4px);
-  border-color: rgba(201,187,166,.3);
-}
-
-.habit-number {
-  color: var(--accent);
-  font-size: .68rem;
-  letter-spacing: 2px;
-  margin-bottom: 22px;
-}
-
-.habit-card h3 {
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  font-weight: 400;
-  margin-bottom: 12px;
-}
-
-.habit-card p {
-  color: var(--muted);
-  font-size: .83rem;
-  line-height: 1.8;
-}
+/* COSTUMBRES */
+.habits-section{background:#191919}
+.habits-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:50px}
+.habit-card{padding:27px;background:#222;border:1px solid var(--line);min-height:175px;transition:.35s ease}
+.habit-card:hover{background:#292929;transform:translateY(-4px);border-color:rgba(201,187,166,.3)}
+.habit-number{color:var(--accent);font-size:.68rem;letter-spacing:2px;margin-bottom:22px}
+.habit-card h3{font-family:var(--serif);font-size:1.2rem;font-weight:400;margin-bottom:12px}
+.habit-card p{color:var(--muted);font-size:.83rem;line-height:1.8}
 
 /* MÚSICA */
-
-.music-section {
-  background:
-    radial-gradient(ellipse at center, rgba(201,187,166,.08), transparent 65%),
-    #121212;
-}
-
-.music-card {
-  max-width: 570px;
-  margin: 50px auto 0;
-  padding: 45px 25px;
-  text-align: center;
-  background: linear-gradient(145deg, #252525, #191919);
-  border: 1px solid var(--line);
-}
-
-.music-icon {
-  width: 75px;
-  height: 75px;
-  margin: 0 auto 25px;
-  border: 1px solid rgba(201,187,166,.5);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.7rem;
-  color: var(--accent);
-}
-
-.music-card h3 {
-  font-family: var(--serif);
-  font-size: 1.55rem;
-  font-weight: 400;
-  margin-bottom: 10px;
-}
-
-.music-card p {
-  color: var(--muted);
-  font-size: .85rem;
-  margin-bottom: 30px;
-}
-
-.music-link {
-  display: inline-block;
-  border: 1px solid rgba(201,187,166,.55);
-  padding: 13px 25px;
-  border-radius: 50px;
-  font-size: .78rem;
-  letter-spacing: 1px;
-  transition: .3s ease;
-}
-
-.music-link:hover {
-  background: var(--accent);
-  color: #111;
-}
+.music-section{background:radial-gradient(ellipse at center,rgba(201,187,166,.08),transparent 65%),#121212}
+.music-card{max-width:570px;margin:50px auto 0;padding:45px 25px;text-align:center;background:linear-gradient(145deg,#252525,#191919);border:1px solid var(--line)}
+.music-icon{width:75px;height:75px;margin:0 auto 25px;border:1px solid rgba(201,187,166,.5);border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:1.7rem;color:var(--accent)}
+.music-card h3{font-family:var(--serif);font-size:1.55rem;font-weight:400;margin-bottom:10px}
+.music-card p{color:var(--muted);font-size:.85rem;margin-bottom:30px}
+.music-link{display:inline-block;border:1px solid rgba(201,187,166,.55);padding:13px 25px;border-radius:50px;font-size:.78rem;letter-spacing:1px;transition:.3s ease}
+.music-link:hover{background:var(--accent);color:#111}
 
 /* CIERRE */
+.closing-section{min-height:75vh;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at center,rgba(201,187,166,.09),transparent 65%),#101010}
+.closing-section .container{max-width:650px}
+.closing-text{color:#d2ccc4;font-family:var(--serif);font-size:clamp(1.2rem,3.5vw,1.55rem);line-height:2;margin-top:30px}
+.final-heart{color:var(--accent);font-size:2rem;margin-top:45px;animation:heartbeat 2s infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.13)}}
 
-.closing-section {
-  min-height: 75vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background:
-    radial-gradient(ellipse at center, rgba(201,187,166,.09), transparent 65%),
-    #101010;
+/* ANIMACIONES */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.floating-heart{position:fixed;bottom:-20px;pointer-events:none;color:rgba(201,187,166,.35);z-index:10;animation:floatUp 7s linear forwards}
+@keyframes floatUp{0%{opacity:0;transform:translateY(0) rotate(0deg)}15%{opacity:.7}100%{opacity:0;transform:translateY(-105vh) rotate(35deg)}}
+
+@media(max-width:600px){
+  .section{padding:85px 22px}
+  .gallery{gap:13px}
+  .photo-card{padding:8px 8px 17px}
+  .photo-card p{font-size:.9rem}
+  .habits-grid{grid-template-columns:1fr}
+  .habit-card{min-height:auto}
+  .letter{padding:28px 22px}
+  .letter p{font-size:.88rem}
 }
-
-.closing-section .container {
-  max-width: 650px;
-}
-
-.closing-text {
-  color: #d2ccc4;
-  font-family: var(--serif);
-  font-size: clamp(1.2rem, 3.5vw, 1.55rem);
-  line-height: 2;
-  margin-top: 30px;
-}
-
-.final-heart {
-  color: var(--accent);
-  font-size: 2rem;
-  margin-top: 45px;
-  animation: heartbeat 2s infinite;
-}
-
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.13); }
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  background: #101010;
-  color: #77716a;
-  font-size: .68rem;
-  letter-spacing: 2px;
-}
-
-/* ANIMACIONES AL SCROLL */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity .9s ease, transform .9s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* DETALLES FLOTANTES */
-
-.floating-heart {
-  position: fixed;
-  bottom: -20px;
-  pointer-events: none;
-  color: rgba(201,187,166,.35);
-  z-index: 10;
-  animation: floatUp 7s linear forwards;
-}
-
-@keyframes floatUp {
-  0% {
-    opacity: 0;
-    transform: translateY(0) rotate(0deg);
-  }
-  15% { opacity: .7; }
-  100% {
-    opacity: 0;
-    transform: translateY(-105vh) rotate(35deg);
-  }
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 600px) {
-  .section {
-    padding: 85px 22px;
-  }
-
-  .gallery {
-    gap: 13px;
-  }
-
-  .photo-card {
-    padding: 8px 8px 17px;
-  }
-
-  .photo-placeholder {
-    min-height: 150px;
-  }
-
-  .photo-card p {
-    font-size: .9rem;
-  }
-
-  .habits-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .habit-card {
-    min-height: auto;
-  }
-
-  .letter {
-    padding: 28px 22px;
-  }
-
-  .letter p {
-    font-size: .88rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
-  }
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
 
 <body>
 
-<!-- PORTADA -->
-
 <section class="cover" id="cover">
   <p class="cover-small">Un pequeño lugar para nosotros</p>
-
   <h1>Querida<br>Pastito.</h1>
-
-  <p class="cover-subtitle">
-    Algo que tenía bastantes ganas de hacerte,
-    un lugarcito hecho especialmente para vos.
-  </p>
-
+  <p class="cover-subtitle">Algo que tenía bastantes ganas de hacerte, un lugarcito hecho especialmente para vos.</p>
   <p class="cover-note">
     Quería regalarte algo un poquitito más distinto.
     Un lugarcito donde puedo guardar algunos recuerdos,
     momentos y pequeñas cosas que forman parte de nuestra historia.
     Ojalá que te guste, mi amor.
   </p>
-
   <p class="signature">gonzabrosito.</p>
-
-  <button class="open-button" onclick="openLetter()">
-    esoo &lt;3
-  </button>
-
-  <p class="cover-bottom">HECHO CON MUCHO CARIÑO · 2026</p>
+  <button class="open-button" onclick="openLetter()">esoo &lt;3</button>
 </section>
 
-
-<!-- CONTENIDO PRINCIPAL -->
-
 <main id="main-content">
-
-  <!-- INTRODUCCIÓN -->
 
   <section class="section intro">
     <div class="container reveal">
       <p class="section-label">01 — Un poquito de nosotros</p>
-
       <h2 class="section-title">Cosas que me gusta recordar</h2>
-
       <p class="intro-text">
         Hay momentos que merecemos guardar.
         No importa cuánto tiempo o cuántas cosas pasen,
@@ -690,173 +168,92 @@ footer {
     </div>
   </section>
 
-
-  <!-- CARTA -->
-
   <section class="section letter-section">
     <div class="container reveal">
       <div class="center">
         <p class="section-label">02 — Unas palabritas para vos</p>
         <h2 class="section-title">Una carta para Pastito</h2>
       </div>
-
       <article class="letter">
         <h3>Querida Pastito:</h3>
-
-        <p>
-          Tenía ganas de regalarte algo un poquitito distinto.
-          Algo que no fuera simplemente un regalo más,
-          sino algo que tuviera un poquito de nosotros.
-        </p>
-
-        <p>
-          Quería dedicarle tiempo a crear algo para vos,
-          juntar algunos recuerdos, elegir fotos y escribir
-          un poco de lo que siento.
-        </p>
-
-        <p>
-          Como ya sabés, suelo recordar mucho el principio,
-          cómo empezó todo, las primeras charlas, las salidas,
-          las risas y todas esas pequeñas cosas que fuimos compartiendo.
-        </p>
-
-        <p>
-          También me gusta pensar en todas las cosas que fuimos
-          descubriendo juntos, las películas, series, los lugares,
-          las canciones y hasta esas cosas que quizás en el momento
-          parecían boludeces, pero que hoy recuerdo con muchísimo cariño.
-        </p>
-
-        <p>
-          No hace falta que cada recuerdo sea perfecto para que sea
-          importante. Para mí, muchas de las cosas más lindas están
-          justamente en esos momentos simples que compartimos
-          sin darle mucha bola al asunto.
-        </p>
-
-        <p>
-          Quería que tuvieras un lugarcito donde encontrar todo eso,
-          volver a mirar algunas fotos y recordar un poquito
-          de nuestra historia.
-        </p>
-
-        <p>
-          Espero que te guste así como a mí me gustó recordar
-          tantas cosas mientras la hacía.
-        </p>
-
-        <div class="letter-signature">
-          Y con todo el amor de su ser,<br>
-          gonzabrosito.
-        </div>
+        <p>Tenía ganas de regalarte algo un poquitito distinto. Algo que no fuera simplemente un regalo más, sino algo que tuviera un poquito de nosotros.</p>
+        <p>Quería dedicarle tiempo a crear algo para vos, juntar algunos recuerdos, elegir fotos y escribir un poco de lo que siento.</p>
+        <p>Como ya sabés, suelo recordar mucho el principio, cómo empezó todo, las primeras charlas, las salidas, las risas y todas esas pequeñas cosas que fuimos compartiendo.</p>
+        <p>También me gusta pensar en todas las cosas que fuimos descubriendo juntos, las películas, series, los lugares, las canciones y hasta esas cosas que quizás en el momento parecían boludeces, pero que hoy recuerdo con muchísimo cariño.</p>
+        <p>No hace falta que cada recuerdo sea perfecto para que sea importante. Para mí, muchas de las cosas más lindas están justamente en esos momentos simples que compartimos sin darle mucha bola al asunto.</p>
+        <p>Quería que tuvieras un lugarcito donde encontrar todo eso, volver a mirar algunas fotos y recordar un poquito de nuestra historia.</p>
+        <p>Espero que te guste así como a mí me gustó recordar tantas cosas mientras la hacía.</p>
+        <div class="letter-signature">Y con todo el amor de su ser,<br>gonzabrosito.</div>
       </article>
     </div>
   </section>
-
-
-  <!-- FOTOGRAFÍAS -->
 
   <section class="section gallery-section">
     <div class="container reveal">
       <div class="center">
         <p class="section-label">Instantes nuestros</p>
         <h2 class="section-title">Algunas de mis favoritas</h2>
-        <p class="section-description">
-          Y para volver a recordar.
-        </p>
+        <p class="section-description">Y para volver a recordar.</p>
       </div>
-
       <div class="gallery">
-
         <div class="photo-card">
-          <!-- Reemplazar este bloque por una imagen -->
-          <div class="photo-placeholder">
-            FOTO 01
-          </div>
+          <img src="imagenes/IMG-20260927-WA0109.jpg" alt="Un recuerdo nuestro" loading="lazy">
           <p>Un recuerdo nuestro</p>
         </div>
-
         <div class="photo-card">
-          <!-- Reemplazar este bloque por una imagen -->
-          <div class="photo-placeholder">
-            FOTO 02
-          </div>
+          <img src="imagenes/IMG-20260927-WA0138.jpg" alt="Un momento compartido" loading="lazy">
           <p>De esos momentos lindos</p>
         </div>
-
         <div class="photo-card">
-          <!-- Reemplazar este bloque por una imagen -->
-          <div class="photo-placeholder">
-            FOTO 03
-          </div>
+          <img src="imagenes/IMG-20260927-WA0160.jpg" alt="Una foto especial" loading="lazy">
           <p>Una de mis favoritas</p>
         </div>
-
         <div class="photo-card">
-          <!-- Reemplazar este bloque por una imagen -->
-          <div class="photo-placeholder">
-            FOTO 04
-          </div>
+          <img src="imagenes/IMG-20260927-WA0165.jpg" alt="Otro recuerdo" loading="lazy">
           <p>Otro pedacito de nosotros</p>
         </div>
-
+        <div class="photo-card">
+          <img src="imagenes/IMG-20261118-WA0314.jpg" alt="Un instante juntos" loading="lazy">
+          <p>Un instante para guardar</p>
+        </div>
+        <div class="photo-card">
+          <img src="imagenes/IMG-20261118-WA0343.jpg" alt="Un recuerdo especial" loading="lazy">
+          <p>Y uno más para recordar</p>
+        </div>
       </div>
-
-      <p class="gallery-caption">
-        Algunas cosas merecen quedarse para siempre.
-      </p>
+      <p class="gallery-caption">Algunas cosas merecen quedarse para siempre.</p>
     </div>
   </section>
-
-
-  <!-- LÍNEA DE TIEMPO -->
 
   <section class="section timeline-section">
     <div class="container reveal">
       <div class="center">
         <p class="section-label">03 — Desde aquel día</p>
         <h2 class="section-title">El principio de algo lindo</h2>
-        <p class="section-description">
-          Algunas fechas que forman parte de nuestra historia.
-        </p>
+        <p class="section-description">Algunas fechas que forman parte de nuestra historia.</p>
       </div>
-
       <div class="timeline">
-
         <div class="timeline-item">
           <span class="timeline-dot"></span>
           <p class="timeline-date">26 DE ABRIL DE 2026</p>
           <h3>Cuando nos conocimos</h3>
-          <p>
-            El día en que nuestras historias se cruzaron.
-          </p>
+          <p>El día en que nuestras historias se cruzaron.</p>
         </div>
-
         <div class="timeline-item">
           <span class="timeline-dot"></span>
           <p class="timeline-date">17 DE MAYO DE 2026</p>
           <h3>Cuando empezamos a salir</h3>
-          <p>
-            Cuando empezamos a conocernos de otra manera.
-          </p>
+          <p>Cuando empezamos a conocernos de otra manera.</p>
         </div>
-
         <div class="timeline-item">
           <span class="timeline-dot"></span>
           <p class="timeline-date">22 DE AGOSTO DE 2026</p>
           <h3>Cuando nos volvimos novios</h3>
-          <p>
-            El comienzo de una etapa muy especial.
-          </p>
+          <p>El comienzo de una etapa muy especial.</p>
         </div>
-
       </div>
     </div>
   </section>
-
-
-  <!-- PEQUEÑAS COSTUMBRES -->
 
   <section class="section habits-section">
     <div class="container reveal">
@@ -864,69 +261,40 @@ footer {
         <p class="section-label">04 — Nuestras pequeñas costumbres</p>
         <h2 class="section-title">Cositas que también forman parte de nosotros</h2>
       </div>
-
       <div class="habits-grid">
-
         <article class="habit-card">
           <p class="habit-number">01 / RECUERDOS</p>
           <h3>Descubrir películas nuevas</h3>
-          <p>
-            Recomendar alguna película que alguno no haya visto
-            y terminar mirándola juntos.
-          </p>
+          <p>Recomendar alguna película que alguno no haya visto y terminar mirándola juntos.</p>
         </article>
-
         <article class="habit-card">
           <p class="habit-number">02 / MOMENTOS</p>
           <h3>Nuestras sesiones de películas</h3>
-          <p>
-            Elegir qué mirar, comentar cada cosa
-            y disfrutarla juntos.
-          </p>
+          <p>Elegir qué mirar, comentar cada cosa y disfrutarla juntos.</p>
         </article>
-
         <article class="habit-card">
           <p class="habit-number">03 / HISTORIAS</p>
           <h3>Descubrir series</h3>
-          <p>
-            Empezar una historia nueva y tener
-            algo más para compartir.
-          </p>
+          <p>Empezar una historia nueva y tener algo más para compartir.</p>
         </article>
-
         <article class="habit-card">
           <p class="habit-number">04 / DESCUBRIMIENTOS</p>
           <h3>Nuestros gustos</h3>
-          <p>
-            Conocer canciones, películas y cosas nuevas
-            gracias al otro.
-          </p>
+          <p>Conocer canciones, películas y cosas nuevas gracias al otro.</p>
         </article>
-
         <article class="habit-card">
           <p class="habit-number">05 / AVENTURAS</p>
           <h3>Los planes improvisados</h3>
-          <p>
-            Esos momentos que no necesitaban
-            demasiada organización.
-          </p>
+          <p>Esos momentos que no necesitaban demasiada organización.</p>
         </article>
-
         <article class="habit-card">
           <p class="habit-number">06 / EXPERIENCIAS</p>
           <h3>Las pequeñas primeras veces</h3>
-          <p>
-            Todas esas experiencias que fuimos
-            descubriendo juntos.
-          </p>
+          <p>Todas esas experiencias que fuimos descubriendo juntos.</p>
         </article>
-
       </div>
     </div>
   </section>
-
-
-  <!-- MÚSICA -->
 
   <section class="section music-section">
     <div class="container reveal">
@@ -934,48 +302,31 @@ footer {
         <p class="section-label">05 — Entre canciones</p>
         <h2 class="section-title">Una canción que quería dejar acá</h2>
       </div>
-
       <div class="music-card">
         <div class="music-icon">♫</div>
-
         <h3>Can't Take My Eyes Off You</h3>
         <p>Frankie Valli</p>
-
-        <a
-          class="music-link"
-          href="https://open.spotify.com/search/Can't%20Take%20My%20Eyes%20Off%20You%20Frankie%20Valli"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ESCUCHAR CANCIÓN ↗
-        </a>
+        <a class="music-link" href="https://open.spotify.com/search/Can't%20Take%20My%20Eyes%20Off%20You%20Frankie%20Valli" target="_blank" rel="noopener noreferrer">ESCUCHAR CANCIÓN ↗</a>
       </div>
     </div>
   </section>
 
-
-  <!-- CIERRE -->
-
   <section class="section closing-section">
     <div class="container reveal">
       <p class="section-label">06 — Antes de irte</p>
-
       <h2 class="section-title">Qué lindo fue coincidir</h2>
-
       <p class="closing-text">
         No sé qué lugar van a tener todos estos recuerdos
         con el tiempo, pero sí sé que hoy los veo con mucho amor.
         Gracias por haber sido parte de tantos momentos lindos,
         mi vida.
       </p>
-
       <div class="final-heart">♡</div>
     </div>
   </section>
 
-
+  <footer>♡ · 2026</footer>
 </main>
-
 
 <script>
 function openLetter() {
@@ -988,55 +339,408 @@ function openLetter() {
     cover.style.display = "none";
     content.style.display = "block";
 
-    window.scrollTo({
-      top: 0,
-      behavior: "instant"
-    });
+    window.scrollTo({top:0,behavior:"instant"});
 
     setTimeout(() => {
-      document.querySelectorAll(".reveal").forEach(el => {
-        observer.observe(el);
-      });
-    }, 100);
-
-  }, 700);
+      document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    },100);
+  },700);
 }
-
-
-// Animaciones al desplazarse
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if(entry.isIntersecting) {
       entry.target.classList.add("visible");
       observer.unobserve(entry.target);
     }
   });
-}, {
-  threshold: 0.12
-});
-
-
-// Pequeños corazones flotantes
+},{threshold:0.12});
 
 function createHeart() {
   const heart = document.createElement("span");
-
   heart.className = "floating-heart";
-  heart.textContent = Math.random() > 0.5 ? "♡" : "✧";
-
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (12 + Math.random() * 14) + "px";
-  heart.style.animationDuration = (6 + Math.random() * 5) + "s";
-
+  heart.textContent = Math.random() > .5 ? "♡" : "✧";
+  heart.style.left = Math.random()*100+"vw";
+  heart.style.fontSize = (12+Math.random()*14)+"px";
+  heart.style.animationDuration = (6+Math.random()*5)+"s";
   document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 11000);
+  setTimeout(() => heart.remove(),11000);
 }
 
-setInterval(createHeart, 1800);
+setInterval(createHeart,1800);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101010">
+<title>Querida Pastito</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#101010;
+  --text:#f1eee9;
+  --muted:#aaa49c;
+  --accent:#c9bba6;
+  --line:rgba(255,255,255,.10);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.13;background-image:radial-gradient(#fff .5px,transparent .5px);background-size:5px 5px}
+::selection{background:var(--accent);color:#111}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+
+/* PORTADA */
+.cover{
+  min-height:100svh;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;
+  padding:35px 24px;position:relative;
+  background:radial-gradient(ellipse at 50% 45%,rgba(151,130,105,.10),transparent 60%),#101010;
+  transition:opacity .8s ease,transform .8s ease;
+}
+.cover.hidden{opacity:0;transform:translateY(-25px);pointer-events:none;position:absolute;width:100%}
+.cover-small{color:var(--accent);font-size:.68rem;letter-spacing:5px;text-transform:uppercase;margin-bottom:30px}
+.cover h1{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,10vw,5.7rem);line-height:1.1;margin-bottom:22px}
+.cover-subtitle{color:var(--muted);font-size:.95rem;line-height:1.8;max-width:340px;margin-bottom:40px}
+.cover-note{max-width:430px;color:#c9c3bb;font-size:.9rem;line-height:2;margin-bottom:35px}
+.signature{color:var(--accent);font-family:var(--serif);font-style:italic;font-size:1.25rem;margin-top:10px}
+.open-button{border:1px solid rgba(201,187,166,.55);background:transparent;color:var(--text);padding:15px 32px;border-radius:50px;font-size:.85rem;letter-spacing:1px;cursor:pointer;transition:.35s ease}
+.open-button:hover{background:var(--accent);color:#111;transform:translateY(-3px)}
+
+/* CONTENIDO */
+#main-content{display:none;opacity:0;animation:appear 1.2s ease forwards}
+@keyframes appear{to{opacity:1}}
+.section{padding:110px 24px;position:relative}
+.container{max-width:900px;margin:auto}
+.section-label{color:var(--accent);font-size:.68rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:23px}
+.section-title{font-family:var(--serif);font-size:clamp(2.1rem,6vw,3.5rem);font-weight:400;line-height:1.25;margin-bottom:22px}
+.section-description{color:var(--muted);font-size:.95rem;line-height:1.9;max-width:570px}
+.center{text-align:center}
+.center .section-description{margin:auto}
+
+/* INTRODUCCIÓN */
+.intro{background:#171717;text-align:center}
+.intro .container{max-width:690px}
+.intro-text{font-family:var(--serif);font-size:clamp(1.3rem,4vw,1.8rem);line-height:1.9;color:#ded8d0;font-weight:400}
+.intro-text span{color:var(--accent);font-style:italic}
+
+/* CARTA */
+.letter-section{background:#121212}
+.letter{max-width:730px;margin:45px auto 0;padding:clamp(28px,6vw,65px);background:linear-gradient(145deg,#202020,#191919);border:1px solid var(--line);border-radius:4px;box-shadow:0 25px 80px rgba(0,0,0,.22)}
+.letter h3{font-family:var(--serif);font-size:1.5rem;font-weight:400;margin-bottom:30px;color:var(--accent)}
+.letter p{color:#d0cbc4;font-size:.94rem;line-height:2.1;margin-bottom:22px}
+.letter-signature{margin-top:40px;font-family:var(--serif);font-size:1.25rem;line-height:1.8;font-style:italic;color:var(--accent)}
+
+/* FOTOGRAFÍAS */
+.gallery-section{background:#191919}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px;margin-top:55px}
+.photo-card{background:#222;padding:12px 12px 22px;border:1px solid rgba(255,255,255,.07);transform:rotate(-1deg);transition:transform .4s ease,background .4s ease}
+.photo-card:nth-child(even){transform:rotate(1.2deg)}
+.photo-card:hover{transform:rotate(0deg) translateY(-7px);background:#292929}
+.photo-card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#30302e}
+.photo-card p{font-family:var(--serif);color:#e1dbd2;text-align:center;font-size:1.05rem;margin-top:17px}
+.gallery-caption{text-align:center;color:var(--muted);margin-top:40px;font-size:.85rem;letter-spacing:1px}
+
+/* LÍNEA DE TIEMPO */
+.timeline-section{background:#121212}
+.timeline{max-width:650px;margin:60px auto 0;position:relative}
+.timeline::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,transparent,#8e806e,#8e806e,transparent)}
+.timeline-item{position:relative;padding-left:42px;padding-bottom:55px}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-dot{position:absolute;left:2px;top:5px;width:13px;height:13px;background:var(--accent);border-radius:50%;box-shadow:0 0 18px rgba(201,187,166,.25)}
+.timeline-date{color:var(--accent);font-size:.75rem;letter-spacing:2px;margin-bottom:13px}
+.timeline-item h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;margin-bottom:10px}
+.timeline-item p{color:var(--muted);font-size:.9rem;line-height:1.8}
+
+/* COSTUMBRES */
+.habits-section{background:#191919}
+.habits-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:50px}
+.habit-card{padding:27px;background:#222;border:1px solid var(--line);min-height:175px;transition:.35s ease}
+.habit-card:hover{background:#292929;transform:translateY(-4px);border-color:rgba(201,187,166,.3)}
+.habit-number{color:var(--accent);font-size:.68rem;letter-spacing:2px;margin-bottom:22px}
+.habit-card h3{font-family:var(--serif);font-size:1.2rem;font-weight:400;margin-bottom:12px}
+.habit-card p{color:var(--muted);font-size:.83rem;line-height:1.8}
+
+/* MÚSICA */
+.music-section{background:radial-gradient(ellipse at center,rgba(201,187,166,.08),transparent 65%),#121212}
+.music-card{max-width:570px;margin:50px auto 0;padding:45px 25px;text-align:center;background:linear-gradient(145deg,#252525,#191919);border:1px solid var(--line)}
+.music-icon{width:75px;height:75px;margin:0 auto 25px;border:1px solid rgba(201,187,166,.5);border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:1.7rem;color:var(--accent)}
+.music-card h3{font-family:var(--serif);font-size:1.55rem;font-weight:400;margin-bottom:10px}
+.music-card p{color:var(--muted);font-size:.85rem;margin-bottom:30px}
+.music-link{display:inline-block;border:1px solid rgba(201,187,166,.55);padding:13px 25px;border-radius:50px;font-size:.78rem;letter-spacing:1px;transition:.3s ease}
+.music-link:hover{background:var(--accent);color:#111}
+
+/* CIERRE */
+.closing-section{min-height:75vh;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at center,rgba(201,187,166,.09),transparent 65%),#101010}
+.closing-section .container{max-width:650px}
+.closing-text{color:#d2ccc4;font-family:var(--serif);font-size:clamp(1.2rem,3.5vw,1.55rem);line-height:2;margin-top:30px}
+.final-heart{color:var(--accent);font-size:2rem;margin-top:45px;animation:heartbeat 2s infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.13)}}
+
+/* ANIMACIONES */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.floating-heart{position:fixed;bottom:-20px;pointer-events:none;color:rgba(201,187,166,.35);z-index:10;animation:floatUp 7s linear forwards}
+@keyframes floatUp{0%{opacity:0;transform:translateY(0) rotate(0deg)}15%{opacity:.7}100%{opacity:0;transform:translateY(-105vh) rotate(35deg)}}
+
+@media(max-width:600px){
+  .section{padding:85px 22px}
+  .gallery{gap:13px}
+  .photo-card{padding:8px 8px 17px}
+  .photo-card p{font-size:.9rem}
+  .habits-grid{grid-template-columns:1fr}
+  .habit-card{min-height:auto}
+  .letter{padding:28px 22px}
+  .letter p{font-size:.88rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+
+<body>
+
+<section class="cover" id="cover">
+  <p class="cover-small">Un pequeño lugar para nosotros</p>
+  <h1>Querida<br>Pastito.</h1>
+  <p class="cover-subtitle">Algo que tenía bastantes ganas de hacerte, un lugarcito hecho especialmente para vos.</p>
+  <p class="cover-note">
+    Quería regalarte algo un poquitito más distinto.
+    Un lugarcito donde puedo guardar algunos recuerdos,
+    momentos y pequeñas cosas que forman parte de nuestra historia.
+    Ojalá que te guste, mi amor.
+  </p>
+  <p class="signature">gonzabrosito.</p>
+  <button class="open-button" onclick="openLetter()">esoo &lt;3</button>
+</section>
+
+<main id="main-content">
+
+  <section class="section intro">
+    <div class="container reveal">
+      <p class="section-label">01 — Un poquito de nosotros</p>
+      <h2 class="section-title">Cosas que me gusta recordar</h2>
+      <p class="intro-text">
+        Hay momentos que merecemos guardar.
+        No importa cuánto tiempo o cuántas cosas pasen,
+        todo lo que viví con vos
+        <span>siempre va a tener un lugar especial.</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="section letter-section">
+    <div class="container reveal">
+      <div class="center">
+        <p class="section-label">02 — Unas palabritas para vos</p>
+        <h2 class="section-title">Una carta para Pastito</h2>
+      </div>
+      <article class="letter">
+        <h3>Querida Pastito:</h3>
+        <p>Tenía ganas de regalarte algo un poquitito distinto. Algo que no fuera simplemente un regalo más, sino algo que tuviera un poquito de nosotros.</p>
+        <p>Quería dedicarle tiempo a crear algo para vos, juntar algunos recuerdos, elegir fotos y escribir un poco de lo que siento.</p>
+        <p>Como ya sabés, suelo recordar mucho el principio, cómo empezó todo, las primeras charlas, las salidas, las risas y todas esas pequeñas cosas que fuimos compartiendo.</p>
+        <p>También me gusta pensar en todas las cosas que fuimos descubriendo juntos, las películas, series, los lugares, las canciones y hasta esas cosas que quizás en el momento parecían boludeces, pero que hoy recuerdo con muchísimo cariño.</p>
+        <p>No hace falta que cada recuerdo sea perfecto para que sea importante. Para mí, muchas de las cosas más lindas están justamente en esos momentos simples que compartimos sin darle mucha bola al asunto.</p>
+        <p>Quería que tuvieras un lugarcito donde encontrar todo eso, volver a mirar algunas fotos y recordar un poquito de nuestra historia.</p>
+        <p>Espero que te guste así como a mí me gustó recordar tantas cosas mientras la hacía.</p>
+        <div class="letter-signature">Y con todo el amor de su ser,<br>gonzabrosito.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section gallery-section">
+    <div class="container reveal">
+      <div class="center">
+        <p class="section-label">Instantes nuestros</p>
+        <h2 class="section-title">Algunas de mis favoritas</h2>
+        <p class="section-description">Y para volver a recordar.</p>
+      </div>
+      <div class="gallery">
+        <div class="photo-card">
+          <img src="imagenes/IMG-20260927-WA0109.jpg" alt="Un recuerdo nuestro" loading="lazy">
+          <p>Un recuerdo nuestro</p>
+        </div>
+        <div class="photo-card">
+          <img src="imagenes/IMG-20260927-WA0138.jpg" alt="Un momento compartido" loading="lazy">
+          <p>De esos momentos lindos</p>
+        </div>
+        <div class="photo-card">
+          <img src="imagenes/IMG-20260927-WA0160.jpg" alt="Una foto especial" loading="lazy">
+          <p>Una de mis favoritas</p>
+        </div>
+        <div class="photo-card">
+          <img src="imagenes/IMG-20260927-WA0165.jpg" alt="Otro recuerdo" loading="lazy">
+          <p>Otro pedacito de nosotros</p>
+        </div>
+        <div class="photo-card">
+          <img src="imagenes/IMG-20261118-WA0314.jpg" alt="Un instante juntos" loading="lazy">
+          <p>Un instante para guardar</p>
+        </div>
+        <div class="photo-card">
+          <img src="imagenes/IMG-20261118-WA0343.jpg" alt="Un recuerdo especial" loading="lazy">
+          <p>Y uno más para recordar</p>
+        </div>
+      </div>
+      <p class="gallery-caption">Algunas cosas merecen quedarse para siempre.</p>
+    </div>
+  </section>
+
+  <section class="section timeline-section">
+    <div class="container reveal">
+      <div class="center">
+        <p class="section-label">03 — Desde aquel día</p>
+        <h2 class="section-title">El principio de algo lindo</h2>
+        <p class="section-description">Algunas fechas que forman parte de nuestra historia.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <p class="timeline-date">26 DE ABRIL DE 2026</p>
+          <h3>Cuando nos conocimos</h3>
+          <p>El día en que nuestras historias se cruzaron.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <p class="timeline-date">17 DE MAYO DE 2026</p>
+          <h3>Cuando empezamos a salir</h3>
+          <p>Cuando empezamos a conocernos de otra manera.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <p class="timeline-date">22 DE AGOSTO DE 2026</p>
+          <h3>Cuando nos volvimos novios</h3>
+          <p>El comienzo de una etapa muy especial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section habits-section">
+    <div class="container reveal">
+      <div class="center">
+        <p class="section-label">04 — Nuestras pequeñas costumbres</p>
+        <h2 class="section-title">Cositas que también forman parte de nosotros</h2>
+      </div>
+      <div class="habits-grid">
+        <article class="habit-card">
+          <p class="habit-number">01 / RECUERDOS</p>
+          <h3>Descubrir películas nuevas</h3>
+          <p>Recomendar alguna película que alguno no haya visto y terminar mirándola juntos.</p>
+        </article>
+        <article class="habit-card">
+          <p class="habit-number">02 / MOMENTOS</p>
+          <h3>Nuestras sesiones de películas</h3>
+          <p>Elegir qué mirar, comentar cada cosa y disfrutarla juntos.</p>
+        </article>
+        <article class="habit-card">
+          <p class="habit-number">03 / HISTORIAS</p>
+          <h3>Descubrir series</h3>
+          <p>Empezar una historia nueva y tener algo más para compartir.</p>
+        </article>
+        <article class="habit-card">
+          <p class="habit-number">04 / DESCUBRIMIENTOS</p>
+          <h3>Nuestros gustos</h3>
+          <p>Conocer canciones, películas y cosas nuevas gracias al otro.</p>
+        </article>
+        <article class="habit-card">
+          <p class="habit-number">05 / AVENTURAS</p>
+          <h3>Los planes improvisados</h3>
+          <p>Esos momentos que no necesitaban demasiada organización.</p>
+        </article>
+        <article class="habit-card">
+          <p class="habit-number">06 / EXPERIENCIAS</p>
+          <h3>Las pequeñas primeras veces</h3>
+          <p>Todas esas experiencias que fuimos descubriendo juntos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section music-section">
+    <div class="container reveal">
+      <div class="center">
+        <p class="section-label">05 — Entre canciones</p>
+        <h2 class="section-title">Una canción que quería dejar acá</h2>
+      </div>
+      <div class="music-card">
+        <div class="music-icon">♫</div>
+        <h3>Can't Take My Eyes Off You</h3>
+        <p>Frankie Valli</p>
+        <a class="music-link" href="https://open.spotify.com/search/Can't%20Take%20My%20Eyes%20Off%20You%20Frankie%20Valli" target="_blank" rel="noopener noreferrer">ESCUCHAR CANCIÓN ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section closing-section">
+    <div class="container reveal">
+      <p class="section-label">06 — Antes de irte</p>
+      <h2 class="section-title">Qué lindo fue coincidir</h2>
+      <p class="closing-text">
+        No sé qué lugar van a tener todos estos recuerdos
+        con el tiempo, pero sí sé que hoy los veo con mucho amor.
+        Gracias por haber sido parte de tantos momentos lindos,
+        mi vida.
+      </p>
+      <div class="final-heart">♡</div>
+    </div>
+  </section>
+
+  <footer>♡ · 2026</footer>
+</main>
+
+<script>
+function openLetter() {
+  const cover = document.getElementById("cover");
+  const content = document.getElementById("main-content");
+
+  cover.classList.add("hidden");
+
+  setTimeout(() => {
+    cover.style.display = "none";
+    content.style.display = "block";
+
+    window.scrollTo({top:0,behavior:"instant"});
+
+    setTimeout(() => {
+      document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    },100);
+  },700);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.12});
+
+function createHeart() {
+  const heart = document.createElement("span");
+  heart.className = "floating-heart";
+  heart.textContent = Math.random() > .5 ? "♡" : "✧";
+  heart.style.left = Math.random()*100+"vw";
+  heart.style.fontSize = (12+Math.random()*14)+"px";
+  heart.style.animationDuration = (6+Math.random()*5)+"s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(),11000);
+}
+
+setInterval(createHeart,1800);
 </script>
 
 </body>
